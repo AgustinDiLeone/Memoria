@@ -1,0 +1,21 @@
+<div class="splash-container">
+  <div class="top-text animate-top">
+    <h1>
+      <span *ngFor="let char of topText; let i = index" [style.--i]="i">{{
+        char
+      }}</span>
+    </h1>
+  </div>
+
+  <div class="logo-container animate-logo">
+    <img src="assets/icon-Memoria.png" />
+  </div>
+
+  <div class="bottom-text animate-bottom">
+    <h2>
+      <span *ngFor="let char of bottomText; let i = index" [style.--i]="i">{{
+        char
+      }}</span>
+    </h2>
+  </div>
+</div>

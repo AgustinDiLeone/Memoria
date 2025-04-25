@@ -1,0 +1,129 @@
+.splash-container {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: bg-fade 3s ease forwards;
+}
+
+@keyframes bg-fade {
+  0% {
+    background: #000;
+  }
+  100% {
+    background: radial-gradient(ellipse at center, #00001a, #000);
+  }
+}
+
+.splash-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0;
+  animation: stars-blink 3s ease-in forwards 3s;
+  z-index: -1;
+}
+
+@keyframes stars-blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.35;
+  }
+}
+
+.logo-container {
+  opacity: 0;
+  animation: spiral-in 2.5s ease-out forwards;
+  animation-delay: 3.3s;
+  margin: 30px 0;
+  width: 300px;
+  height: 300px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(
+      50% 0%,
+      69% 27%,
+      98% 35%,
+      80% 62%,
+      87% 91%,
+      50% 76%,
+      13% 93%,
+      24% 62%,
+      2% 35%,
+      33% 27%
+    );
+  }
+}
+
+@keyframes spiral-in {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(1080deg);
+    opacity: 1;
+  }
+}
+
+.top-text,
+.bottom-text {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+
+  h1,
+  h2 {
+    font-family: "Press Start 2P", cursive;
+    font-weight: bold;
+    color: #00bfff;
+    font-size: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30%);
+    animation: letter-bounce 0.6s forwards;
+    margin: 0 1px;
+  }
+}
+
+.animate-top span {
+  animation-delay: calc(var(--i) * 0.1s + 6s);
+}
+
+.animate-bottom span {
+  animation-delay: calc(var(--i) * 0.1s + 7s);
+}
+
+@keyframes letter-bounce {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

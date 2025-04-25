@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">memoria-app</string>
+    <string name="title_activity_main">memoria-app</string>
+    <string name="package_name">io.memoria.starter</string>
+    <string name="custom_url_scheme">io.memoria.starter</string>
+</resources>
