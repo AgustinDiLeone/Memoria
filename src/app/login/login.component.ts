@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { InterpolationConfig } from '@angular/compiler';
 import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -12,6 +13,7 @@ import { AlertaService } from 'src/app/services/alerta.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { SpinnerService } from 'src/app/services/spinner.service';
 import { UtilService } from 'src/app/services/util';
+import { IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
         const authResponse = await this.authServise.logIn({ email, password });
         if (authResponse.error) throw authResponse.error;
         this.spinner.mostrar();
+        this.form.reset();
         this.util.routerLink('/home');
       } catch (error) {
         console.log(error);

@@ -46,10 +46,23 @@
     <button type="submit" [disabled]="form.invalid">Ingresar</button>
   </form>
 
-  <!-- Botones de usuarios predefinidos -->
-  <div class="button-group">
-    <button type="button" (click)="ingresarAdmin()">Administrador</button>
-    <button type="button" (click)="ingresarProp()">Invitado</button>
-    <button type="button" (click)="ingresarUser()">Usuario</button>
+  <div class="star-radio-group">
+    <label class="star-radio">
+      <input type="radio" name="userType" (change)="ingresarAdmin()" />
+      <img src="assets/star.png" alt="estrella" class="icono" />
+      <span>Administrador</span>
+    </label>
+
+    <label class="star-radio">
+      <input type="radio" name="userType" (change)="ingresarProp()" />
+      <img src="assets/star.png" alt="estrella" class="icono" />
+      <span>Invitado</span>
+    </label>
+
+    <label class="star-radio">
+      <input type="radio" name="userType" (change)="ingresarUser()" />
+      <img src="assets/star.png" alt="estrella" class="icono" />
+      <span>Usuario</span>
+    </label>
   </div>
 </div>
