@@ -14,6 +14,7 @@ import {
   IonCardTitle,
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { SpinnerService } from '../services/spinner.service';
 
 @Component({
   selector: 'app-home',
@@ -33,14 +34,20 @@ export class HomePage {
   private client = inject(AuthService);
   private util = inject(UtilService);
   private router = inject(Router);
+  private spinner = inject(SpinnerService);
   salir() {
     this.client.singOut();
     this.util.routerLink('/login');
   }
   // Función para navegar a la página del juego pasando el nivel
+
   seleccionarNivel(nivel: string) {
+    this.spinner.mostrar();
     this.router.navigate(['/jugar'], {
       state: { dificultad: nivel },
     });
+  }
+  ranking(nivel: any) {
+    this.util.routerLink('/menu-posiciones');
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -24,6 +24,20 @@ interface Carta {
   imagen: string;
   volteada: boolean;
 }
+interface JuegoGanado {
+  correo: string;
+  fecha: string; // ISO format
+  tiempo: any;
+}
+interface ResultadosJSON {
+  facil: JuegoGanado[];
+  media: JuegoGanado[];
+  dificil: JuegoGanado[];
+}
+import { saveAs } from 'file-saver';
+import { AuthService } from '../services/auth.service';
+import { AlertaService } from '../services/alerta.service';
+import { UtilService } from '../services/util';
 
 @Component({
   selector: 'app-jugar',
@@ -40,6 +54,9 @@ export class JugarPage {
   paresEncontrados = 0;
   timer: any;
   nivel = 'facil';
+  private supabase = inject(AuthService);
+  private alerta = inject(AlertaService);
+  private util = inject(UtilService);
 
   // Inyectamos el servicio
   constructor(private juegoService: JuegoService) {}
@@ -84,14 +101,39 @@ export class JugarPage {
     if (this.paresEncontrados === this.cartas.length / 2) {
       clearInterval(this.timer);
       this.tiempoFinal = this.tiempo;
+      this.guardarResultado();
     }
   }
 
   // Función para guardar el tiempo cuando termina el juego
-  guardarTiempo() {
-    // Aquí puedes guardar el tiempo en la base de datos (por ejemplo Firebase)
-    console.log('Tiempo guardado: ', this.tiempoFinal);
-    // Redirigir a otra página o mostrar mensaje de éxito
+  async guardarResultado() {
+    const user = await this.supabase.currentUser();
+
+    const correo = user?.email!;
+
+    const nuevoRegistro: JuegoGanado = {
+      correo,
+      fecha: new Date().toISOString(),
+      tiempo: this.tiempoFinal,
+    };
+    const { data, error } = await this.supabase.supabaseClient
+      .from(this.nivel)
+      .insert([
+        {
+          correo,
+          fecha: new Date(), // se puede omitir si la columna tiene DEFAULT now()
+          tiempo: this.tiempoFinal,
+        },
+      ]);
+
+    if (error) {
+      console.error('Error al guardar la partida:', error.message);
+    }
+    this.alerta.mostrar(
+      `¡Felicitaciones! Has logrado completar el nivel en ${this.tiempoFinal} segundos`,
+      'success'
+    );
+    this.util.routerLink(`/mejores-resultados/${this.nivel}`);
   }
 
   columnas = 2;
@@ -111,5 +153,17 @@ export class JugarPage {
       this.columnas = Math.ceil(Math.sqrt(cantidad));
       this.filas = Math.ceil(cantidad / this.columnas);
     }
+  }
+  get tiempoFormateado(): string {
+    const minutos = Math.floor(this.tiempo / 60);
+    const segundos = this.tiempo % 60;
+    return `${this.pad(minutos)}:${this.pad(segundos)}`;
+  }
+
+  pad(n: number): string {
+    return n < 10 ? '0' + n : n.toString();
+  }
+  salir() {
+    this.util.routerLink('/home');
   }
 }

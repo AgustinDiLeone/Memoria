@@ -25,4 +25,15 @@ export class AuthService {
   singOut() {
     return this.supabaseClient.auth.signOut();
   }
+  async currentUser() {
+    const { data, error } = await this.supabaseClient.auth.getUser();
+
+    if (error) {
+      console.error('Error al obtener el usuario:', error.message);
+      return null;
+    }
+
+    console.log('Usuario actual:', data.user);
+    return data.user;
+  }
 }

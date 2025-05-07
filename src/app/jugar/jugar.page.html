@@ -21,4 +21,10 @@
       </div>
     </div>
   </div>
+  <!-- Toolbar inferior con cronómetro -->
+  <div class="toolbar-cronometro">
+    <div>⏱️ Tiempo: {{ tiempoFormateado }}</div>
+    <button class="boton-salir" (click)="salir()">Volver</button>
+    <div>⭐ Aciertos: {{ paresEncontrados }} / {{this.cartas.length / 2}}</div>
+  </div>
 </ion-content>

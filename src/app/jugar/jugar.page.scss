@@ -44,3 +44,41 @@
   height: 100%;
   object-fit: cover;
 }
+.toolbar-cronometro {
+  background: radial-gradient(ellipse at center, #00001a, #000);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Cambiado para separar el cronómetro y los aciertos */
+  padding: 0 20px;
+  border-top: 2px solid #00bfff;
+  z-index: 1000;
+}
+
+.cartas-grid {
+  padding-bottom: 70px; /* Ajustado para que no se oculte contenido debajo del cronómetro */
+}
+
+.toolbar-cronometro div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.boton-salir {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #00bfff;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}

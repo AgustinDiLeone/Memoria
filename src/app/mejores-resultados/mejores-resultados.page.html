@@ -1,0 +1,25 @@
+<div class="contenedor">
+  <div class="tabla-contenedor">
+    <h3>
+      Mejores Resultados 🏆 {{dificultad.charAt(0).toUpperCase() +
+      dificultad.slice(1)}}
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Correo</th>
+          <th>Fecha</th>
+          <th>Tiempo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of mejores">
+          <td>{{ r.correo }}</td>
+          <td>{{ formatearFecha(r.fecha) }}</td>
+          <td>{{ formatearTiempo(r.tiempo) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="volver-btn" (click)="volverAlMenu()">Volver al menú</button>
+  </div>
+</div>

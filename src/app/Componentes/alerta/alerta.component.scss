@@ -30,8 +30,8 @@
 }
 
 .alerta.success {
-  border-left: 8px solid #2ecc71;
-  color: #27ae60;
+  color: white;
+  background: radial-gradient(ellipse at center, #01ae06, #000);
 }
 
 .alerta.info {

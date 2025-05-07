@@ -25,7 +25,6 @@ export class AppComponent {
   ngOnInit() {
     // Oculta el splash screen nativo de Capacitor
     //SplashScreen.hide();
-
     // Simulación del splash screen animado por 3 segundos
     setTimeout(() => {
       this.showSplash = false;

@@ -1,0 +1,80 @@
+.home-container {
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #00001a, #000);
+  // Si descomentas la textura, asegúrate de que esté activa si quieres una textura de fondo
+  // background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #00bfff;
+  font-family: "Orbitron", sans-serif;
+  padding: 20px;
+}
+
+ion-content {
+  --padding-top: 0;
+  --background: transparent;
+  height: 100%;
+  padding: 0;
+}
+
+.seleccion-nivel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #00bfff;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+.niveles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%; /* Tarjetas ocuparán el 90% del ancho de la pantalla */
+  max-height: 80%;
+  max-width: 400px; /* Ajustamos un máximo de ancho */
+}
+
+ion-card {
+  width: 100%;
+  max-width: 100%;
+  border: 2px solid #00bfff;
+  background-color: transparent;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  color: #00bfff;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+ion-card-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #00bfff;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+ion-card-header {
+  background-color: transparent;
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+ion-card-content {
+  font-size: 1.1em;
+  color: #00bfff;
+}
