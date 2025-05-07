@@ -29,6 +29,6 @@ export class AppComponent {
     setTimeout(() => {
       this.showSplash = false;
       this.router.navigate(['/login']);
-    }, 0); //9000);
+    }, 9000);
   }
 }
