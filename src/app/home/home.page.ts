@@ -39,8 +39,8 @@ export class HomePage {
   }
   // Función para navegar a la página del juego pasando el nivel
   seleccionarNivel(nivel: string) {
-    this.router.navigate(['/juego'], {
-      queryParams: { dificultad: nivel },
+    this.router.navigate(['/jugar'], {
+      state: { dificultad: nivel },
     });
   }
 }

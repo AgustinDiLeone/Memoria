@@ -1,0 +1,24 @@
+<ion-content>
+  <div
+    class="cartas-grid"
+    [ngStyle]="{
+      'grid-template-columns': 'repeat(' + columnas + ', 1fr)',
+      'grid-template-rows': 'repeat(' + filas + ', 1fr)'
+    }"
+  >
+    <div
+      class="carta"
+      *ngFor="let carta of cartas; let i = index"
+      (click)="seleccionarCarta(carta, i)"
+    >
+      <div class="carta-inner" [class.volteada]="carta.volteada">
+        <div class="carta-front">
+          <img src="assets/carta.jpg" />
+        </div>
+        <div class="carta-back">
+          <img [src]="carta.imagen" />
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

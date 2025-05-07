@@ -39,8 +39,9 @@ h2 {
 .niveles {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 90%; /* Tarjetas ocuparán el 90% del ancho de la pantalla */
+  max-height: 80%;
   max-width: 400px; /* Ajustamos un máximo de ancho */
 }
 
@@ -52,7 +53,6 @@ ion-card {
   border-radius: 10px;
   text-align: center;
   transition: transform 0.2s ease;
-  padding: 20px;
   color: #00bfff;
 
   &:hover {
@@ -68,7 +68,6 @@ ion-card-title {
 }
 
 ion-card-header {
-  padding: 10px;
   background-color: transparent;
   color: #00bfff;
   font-weight: bold;
@@ -78,5 +77,4 @@ ion-card-header {
 ion-card-content {
   font-size: 1.1em;
   color: #00bfff;
-  padding: 10px;
 }
