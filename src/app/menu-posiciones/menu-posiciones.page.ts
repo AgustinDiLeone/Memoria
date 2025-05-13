@@ -24,7 +24,6 @@ import { UtilService } from '../services/util';
     IonCardTitle,
     IonCardHeader,
     IonCard,
-    IonCardContent,
     IonContent,
     CommonModule,
     FormsModule,

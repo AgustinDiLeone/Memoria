@@ -7,6 +7,13 @@
   align-items: center;
   text-align: center;
 }
+h3 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #00bfff;
+  text-shadow: 0 0 8px #00bfff;
+}
 
 .tabla-contenedor {
   margin: 20px;
@@ -31,6 +38,7 @@ td {
 th {
   background-color: transparent;
   color: #fff;
+  font-size: 2em;
 }
 .volver-btn {
   margin-top: 20px;
@@ -39,7 +47,7 @@ th {
   border: none;
   border-radius: 8px;
   color: #fff;
-  font-size: 16px;
+  font-size: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -47,3 +55,44 @@ th {
 .volver-btn:hover {
   background-color: #009acd;
 }
+//////
+///
+/*
+@media screen and (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; // Ocultamos los encabezados
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #00bfff;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  td {
+    text-align: left;
+    padding: 8px 10px;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    color: #00bfff;
+    margin-bottom: 4px;
+  }
+}
+*/

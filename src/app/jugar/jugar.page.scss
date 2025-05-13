@@ -50,10 +50,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 80px;
   background-color: #333;
   color: #fff;
-  font-size: 18px;
+  font-size: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between; /* Cambiado para separar el cronómetro y los aciertos */
@@ -63,7 +63,7 @@
 }
 
 .cartas-grid {
-  padding-bottom: 70px; /* Ajustado para que no se oculte contenido debajo del cronómetro */
+  padding-bottom: 90px; /* Ajustado para que no se oculte contenido debajo del cronómetro */
 }
 
 .toolbar-cronometro div {
@@ -78,7 +78,7 @@
   padding: 6px 16px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 30px;
   cursor: pointer;
   transition: 0.3s;
 }
